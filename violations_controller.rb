@@ -18,7 +18,7 @@ class ViolationsController
 					categories[row.violation_category] = 1
 				end
 			end
-			categories
+			Viewable.display_totals(categories)
 
 		when "earliest"
 			categories = {}
@@ -29,7 +29,7 @@ class ViolationsController
 			categories.each_pair do |key,value|
 				value.sort!
 				value = value.first
-				puts "#{key} has the earliest date of #{value}"
+				Viewable.earliest(key, value)
 			end
 			
 

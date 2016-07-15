@@ -1,5 +1,4 @@
 require 'csv'
-require_relative 'violation'
 
 module CsvParser
 
