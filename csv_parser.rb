@@ -1,6 +1,6 @@
 require 'csv'
 
-module CsvParser
+module CSVParser
 
 	def self.parse_violations(file)
 		parsed_array = []
