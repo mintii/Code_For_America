@@ -4,25 +4,8 @@
 
 #pass in argv and the arguments of what to 
 
-require 'csv'
+require_relative 'controller'
+require_relative 'csv_parser'
+require_relative 'view'
+require_relative 'violation'
 
-class Violation
-	attr_reader :details
-	def initialize(details)
-		@details = {
-								:violation_id => details[:violation_id], 
-								:inspection_id => details[:inspection_id], 
-								:violation_category => details[:violation_category], 
-								:violation_date => details[:violation_date_closed], 
-								:violation_type => details[:violation_type]
-								}
-	end
-end
-
-parsed_array = []
-
-parse_file = CSV.foreach("Violations-2012.csv", :headers => true, :header_converters => :symbol) do |row|
-	parsed_array << Violation.new(row)
-end
-
-p parsed_array
