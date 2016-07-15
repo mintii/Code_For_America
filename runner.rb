@@ -12,4 +12,4 @@ require_relative 'violation'
 parsed_data = CsvParser.parse_violations("Violations-2012.csv")
 
 run = ViolationsController.new(ARGV[0], parsed_data)
-p run.list_calculations
+run.list_calculations
