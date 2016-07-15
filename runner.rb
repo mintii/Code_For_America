@@ -4,8 +4,12 @@
 
 #pass in argv and the arguments of what to 
 
-require_relative 'controller'
+require_relative 'violations_controller'
 require_relative 'csv_parser'
 require_relative 'view'
 require_relative 'violation'
 
+parsed_data = CsvParser.parse_violations("Violations-2012.csv")
+
+run = ViolationsController.new(ARGV[0], parsed_data)
+p run.list_calculations
